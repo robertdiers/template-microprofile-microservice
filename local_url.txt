@@ -1,0 +1,10 @@
+Payara Micro 4, TomEE 8, Wildfly 16
+http://localhost:8080/microprofile-microservice/rest/application.wadl
+http://localhost:8080/microprofile-microservice/rest/helloworld/sayhello
+
+KumuluzEE
+http://localhost:8080/rest/application.wadl
+http://localhost:8080/rest/helloworld/sayhello
+
+Thorntail
+http://localhost:8080/rest/helloworld/sayhello

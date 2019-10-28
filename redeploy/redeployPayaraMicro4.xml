@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="redeployPayaraMicro4" basedir="../" default="redeploy">	
+	
+    <property name="folder.maven" value="target/microprofile-microservice"/>
+    <property name="folder.run" value="deploymentPayaraMicro4/microprofile-microservice"/>	
+	<property name="redeploy.file" value="${folder.run}/.reload"/>
+				   
+  	<target name="redeploy">
+  		<!-- because of MS operating system we have to copy first -->
+  		<!-- ATTENTION: sometime OS is blocking delete task - please comment it in this case and remember to clean up when deleting files/classes -->
+  		<delete dir="${folder.run}"/>
+  		<mkdir dir="${folder.run}"/>
+  		<copy todir="${folder.run}">
+  		    <fileset dir="${folder.maven}"/>
+  		</copy>
+  		<antcall target="delete_reload" />
+  		<antcall target="create_reload" />
+  	</target>  
+	
+	<target name="check-reload">
+	    <available file="${redeploy.file}" property="redeploy.present"/>
+	</target>
+
+	<target name="delete_reload" depends="check-reload" if="redeploy.present">
+		<delete file="${redeploy.file}" />
+	</target>
+	
+	<target name="create_reload">
+		<touch file="${redeploy.file}"/>
+	</target>
+  
+</project>

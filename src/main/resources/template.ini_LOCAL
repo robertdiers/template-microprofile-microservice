@@ -1,0 +1,11 @@
+# LOCAL environment
+helloworld=Hello World from LOCAL!
+
+# Log INFO / WARNING / SEVERE
+loglevel=INFO
+logfile=App_#ServerName#.log
+logfolder=./
+
+# Timer / Jobserver (please use server name)
+jobserver=localhost
+ExampleTimerTask=true

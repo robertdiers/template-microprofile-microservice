@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="redeployWildFly16" basedir="../" default="redeploy">	
+	
+	<property name="file.war" value="microprofile-microservice.war"/>
+    <property name="folder.maven" value="target"/>
+    <property name="folder.run" value="wildfly-16.0.0.Final/standalone/deployments"/>	
+				   
+  	<target name="redeploy">
+  		<!-- because of MS operating system we have to copy first -->
+  		<!-- ATTENTION: sometime OS is blocking delete task - please comment it in this case and remember to clean up when deleting files/classes -->
+  		<delete file="${folder.run}/${file.war}"/>
+  		<mkdir dir="${folder.run}"/>
+  		<copy todir="${folder.run}">
+  		    <fileset file="${folder.maven}/${file.war}"/>
+  		</copy>  		
+  	</target> 	
+  
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="redeployTomEE8" basedir="../" default="redeploy">	
+	
+    <property name="folder.maven" value="target/microprofile-microservice"/>
+    <property name="folder.run" value="apache-tomee-microprofile-8.0.0-M2/webapps/microprofile-microservice"/>	
+				   
+  	<target name="redeploy">
+  		<!-- because of MS operating system we have to copy first -->
+  		<!-- ATTENTION: sometime OS is blocking delete task - please comment it in this case and remember to clean up when deleting files/classes -->
+  		<delete dir="${folder.run}"/>
+  		<mkdir dir="${folder.run}"/>
+  		<copy todir="${folder.run}">
+  		    <fileset dir="${folder.maven}"/>
+  		</copy>  		
+  	</target> 	
+  
+</project>

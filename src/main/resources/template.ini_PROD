@@ -1,0 +1,11 @@
+# PROD environment
+helloworld=Hello World from PROD!
+
+# Log INFO / WARNING / SEVERE
+loglevel=WARNING
+logfile=App_#ServerName#.log
+logfolder=../../../../logs/project
+
+# Timer / Jobserver (please use server name)
+jobserver=
+ExampleTimerTask=false

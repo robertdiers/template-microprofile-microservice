@@ -1,0 +1,9 @@
+plugins {
+    id "com.github.dkorotych.gradle-maven-exec" version "2.1"
+}
+
+defaultTasks 'rebuild'
+
+task rebuild(type: MavenExec) {
+    goals 'clean', 'install'
+}
